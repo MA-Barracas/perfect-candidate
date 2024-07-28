@@ -11,16 +11,6 @@ load_dotenv()
 # Initialize the Groq client
 groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"),)
 
-# Function to get embeddings using OpenAI API
-def get_embeddings(text):
-    client = openai.OpenAI()
-    response = client.embeddings.create(
-        input=text,
-        model="text-embedding-3-small"
-    )
-    embeddings = response.data[0].embedding
-    return np.array(embeddings)
-
 # Function to parse PDF files
 def parse_pdf(file):
     text = ""
@@ -83,7 +73,7 @@ def main():
     # Parsing the uploaded files
     if cv_file:
         cv_text = handle_file_upload(cv_file, cv_file.name.split('.')[-1])
-        cv_embeddings = get_embeddings(cv_text)
+        
     else:
         st.error("***Se debe introducir al menos el CV del candidato***")
         return
