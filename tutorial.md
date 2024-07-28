@@ -257,6 +257,10 @@ if __name__ == "__main__":
 
 Con la excusa de que el reclutador use la app para "hablar" con nuestro CV, tenemos la oportunidad de repasar nuestra info pero de una forma diferente, amena y que dice mucho de nuesra capacidad de generar aplicaciones basadas en IA para casos prácticos.
 
+![alt text](img/uso.png)
+
+_Aqui ↑↑↑ puedes ver un ejemplo con unos archivos fake de prueba (están en la carpeta ejemplos del proyecto) donde se ve como el asistente reconoce al candidato e incluso desaconseja el puesto al que postula por no ser relevante para su perfil._
+
 ### Retos y Líneas Futuras
 
 - **Integración con Bases de Datos**: Integrar la aplicación con bases de datos de candidatos para una evaluación más completa. Podriamos ir almacenando todas las conversaciones y asi ir generando un historial de todas nuestras entrevistas. Con suerte, pocas 😉
