@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tutorial.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><img src="https://raw.githubusercontent.com/MA-Barracas/perfect-candidate/main/img/logo_TB_horiz_positivo-01.png" alt="alt text"></p>
+<h1 id="creando-una-aplicaci%C3%B3n-de-asistente-de-reclutamiento-con-streamlit-br-perfect-candidate">Creando una Aplicación de Asistente de Reclutamiento con Streamlit <br> Perfect-Candidate</h1>
+<p><img src="https://raw.githubusercontent.com/MA-Barracas/perfect-candidate/main/img/intro.png" alt="alt text"></p>
+<h2 id="introducci%C3%B3n">Introducción</h2>
+<p>¡Hola! Os propongo la creación de un asistente de proceso de seleccion virtual AI powered utilizando <strong>Streamlit</strong>. Esta aplicación está diseñada para ayudar a los reclutadores a evaluar candidatos de manera más eficiente, permitiendo que interactúen directamente con la información del CV y otros documentos de los candidatos a través de un chatbot. Pero, en realidad, esta aplicación está pensada para, no solo enseñar tu CV sino mostrar tus habilidades de programación lo que te puede hacerdestacar entre otros candidatos al mostrar tu capacidad para crear herramientas innovadoras.
+Este tutorial está diseñado con un perfil de Data Science en mente. Pero no se explora ningún concepto especialmente complejo en profundidad, por lo que otros perfiles pueden encontrarlo interesante.</p>
+<h2 id="motivaci%C3%B3n">Motivación</h2>
+<p>Imagina que acabas de terminar tu bootcamp y estás en búsqueda de tu primer trabajo como científico de datos. Has enviado tu CV a varios reclutadores, pero ¿qué más puedes hacer para destacar? Aquí es donde entra nuestra aplicación. Al crear esta herramienta, no solo proporcionas tu CV, sino que también demuestras tu capacidad para trabajar con tecnologías avanzadas como LLMs y en concreto usando la api de <strong>Groq</strong>. Esto puede llamar la atención de los reclutadores/entrevistadores y aumentar tus posibilidades de ser contratado.</p>
+<h2 id="%C2%BFqu%C3%A9-es-streamlit">¿Qué es Streamlit?</h2>
+<p><strong>Streamlit</strong> es una herramienta con mucho potencial (que quizás ya conozcas!) que permite a los científicos de datos y otros desarrolladores crear aplicaciones web de manera rápida y sencilla utilizando solo Python. No necesitas conocimientos avanzados de desarrollo web; con Streamlit, puedes crear interfaces de usuario interactivas en cuestión de minutos.</p>
+<h2 id="%C2%BFprompting-engineering-y-los-modelos-de-groq">¿Prompting Engineering y los Modelos de Groq?</h2>
+<ul>
+<li><strong>Prompting</strong>: Los LLMs como ChatGPT o Gemini sufren cuando no disponen la información que se les pide en su conjunto de entrenamiento inicial. Esto hace que en el mejor de los casos, el modelo responda que no lo sabe o, peor aun, se inventa la respuesta. Hay muchas formas de evitar esto. Nosotros aqui proponemos la más sencilla que es especificarle un rol al modelo de lo que tiene que hacer y en qué caso de uso (AI assistant para un proceso de selección) e incluir en el prompt todos los documentos aportados por el usuario como contexto.</li>
+<li><strong>Modelos de Groq</strong>: Para demostrar que hay vida más alla de OpenAi y la curiosidad inherente de un ADN bootcamp, probamos con otro proveedor de LLMs, en este caso Groq. Groq proporciona modelos avanzados de procesamiento de lenguaje natural (NLP) que podemos usar para generar respuestas inteligentes y coherentes a las preguntas que los reclutadores puedan tener sobre los candidatos. Para este ejemplo usaremos el nuevo, flamante (en Julio 2024, que esto en semanas se queda obsoleto!) y open source modelo de meta _<strong>Llama 3.1 70B</strong> (larga vida a los modelos abiertos 🖖🖖🖖)</li>
+</ul>
+<p>Encontrarás todo el código para la aplicacion en este repo: https://github.com/MA-Barracas/perfect-candidate</p>
+<h2 id="paso-a-paso-de-la-creaci%C3%B3n-de-la-aplicaci%C3%B3n">Paso a Paso de la Creación de la Aplicación</h2>
+<h3 id="paso-1-preparar-el-entorno">Paso 1: Preparar el Entorno</h3>
+<p>Primero, necesitamos asegurarnos de tener todas las herramientas necesarias instaladas. Vamos a usar Python, así que asegúrate de tenerlo instalado. Luego, instala las siguientes librerías:</p>
+<pre class="hljs"><code><div>pip install streamlit pdfplumber docx2txt openai numpy groq dotenv
+</div></code></pre>
+<h3 id="paso-2-configurar-las-claves-api">Paso 2: Configurar las Claves API</h3>
+<p>Vamos a utilizar los servicios de Groq, así que necesitas obtener tus claves API y configurarlas en un archivo <code>.env</code>. Este archivo debe ubicarse en la raíz de tu proyecto y debe contener lo siguiente:</p>
+<pre class="hljs"><code><div>GROQ_API_KEY=tu_clave_groq
+</div></code></pre>
+<p><em><strong>SUPER HIPER MEGA IMPORTANTE</strong></em>: Nunca subas al repo el archivo .env o cualquier parte de código que contenga api keys, contraseñas etc... Si despliegas esta aplicación, bastará que en el própio servicio de despliegue (Streamlit, GCP, AWS...) especifiques la API KEY como variable de entorno.</p>
+<h3 id="paso-3-estructura-del-c%C3%B3digo">Paso 3: Estructura del Código</h3>
+<p>Vamos a desglosar el código línea por línea para entender cómo funciona.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> streamlit <span class="hljs-keyword">as</span> st
+<span class="hljs-keyword">import</span> pdfplumber
+<span class="hljs-keyword">import</span> docx2txt
+<span class="hljs-keyword">import</span> openai
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">from</span> groq <span class="hljs-keyword">import</span> Groq
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">from</span> dotenv <span class="hljs-keyword">import</span> load_dotenv
+</div></code></pre>
+<p>Aquí, estamos importando todas las librerías necesarias. <strong>Streamlit</strong> para la interfaz web, <strong>pdfplumber</strong> y <strong>docx2txt</strong> para procesar los documentos, <strong>groq</strong> para los modelos de NLP, y <strong>dotenv</strong> para manejar nuestras variables de entorno.</p>
+<h3 id="paso-4-cargar-las-variables-de-entorno">Paso 4: Cargar las Variables de Entorno</h3>
+<pre class="hljs"><code><div>load_dotenv()
+groq_client = Groq(api_key=os.environ.get(<span class="hljs-string">"GROQ_API_KEY"</span>))
+</div></code></pre>
+<p>Cargamos las claves API desde nuestro archivo <code>.env</code> y las usamos para inicializar el cliente de Groq.</p>
+<h3 id="paso-5-funciones-de-utilidad">Paso 5: Funciones de Utilidad</h3>
+<h4 id="parsear-archivos-pdf">Parsear Archivos PDF</h4>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse_pdf</span><span class="hljs-params">(file)</span>:</span>
+    text = <span class="hljs-string">""</span>
+    <span class="hljs-keyword">with</span> pdfplumber.open(file) <span class="hljs-keyword">as</span> pdf:
+        <span class="hljs-keyword">for</span> page <span class="hljs-keyword">in</span> pdf.pages:
+            text += page.extract_text()
+    <span class="hljs-keyword">return</span> text
+</div></code></pre>
+<p>Aquí, usamos <strong>pdfplumber</strong> para extraer texto de un archivo PDF.</p>
+<h4 id="parsear-archivos-docx">Parsear Archivos DOCX</h4>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse_docx</span><span class="hljs-params">(file)</span>:</span>
+    text = docx2txt.process(file)
+    <span class="hljs-keyword">return</span> text
+</div></code></pre>
+<p>Similar a la función anterior, pero para archivos DOCX utilizando <strong>docx2txt</strong>.</p>
+<h4 id="manejar-subida-de-archivos">Manejar Subida de Archivos</h4>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">handle_file_upload</span><span class="hljs-params">(file, file_type)</span>:</span>
+    <span class="hljs-keyword">if</span> file_type == <span class="hljs-string">'pdf'</span>:
+        <span class="hljs-keyword">return</span> parse_pdf(file)
+    <span class="hljs-keyword">elif</span> file_type == <span class="hljs-string">'docx'</span>:
+        <span class="hljs-keyword">return</span> parse_docx(file)
+    <span class="hljs-keyword">elif</span> file_type == <span class="hljs-string">'txt'</span>:
+        <span class="hljs-keyword">return</span> file.read().decode(<span class="hljs-string">'utf-8'</span>)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>
+</div></code></pre>
+<p>Esta función decide qué función de parsing usar basada en el tipo de archivo subido.</p>
+<h3 id="paso-6-obtener-respuestas-del-modelo-groq">Paso 6: Obtener Respuestas del Modelo Groq</h3>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_groq_response</span><span class="hljs-params">(messages)</span>:</span>
+    completion = groq_client.chat.completions.create(
+        model=<span class="hljs-string">"llama-3.1-70b-versatile"</span>,
+        messages=messages,
+        temperature=<span class="hljs-number">0.5</span>,
+        max_tokens=<span class="hljs-number">400</span>,
+        top_p=<span class="hljs-number">1</span>,
+        stream=<span class="hljs-literal">True</span>,
+        stop=<span class="hljs-literal">None</span>,
+    )
+    response = <span class="hljs-string">""</span>
+    <span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> completion:
+        response += chunk.choices[<span class="hljs-number">0</span>].delta.content <span class="hljs-keyword">or</span> <span class="hljs-string">""</span>
+    <span class="hljs-keyword">return</span> response
+</div></code></pre>
+<p>Esta función envía un conjunto de mensajes al modelo de Groq y recibe una respuesta. El parámetro <code>temperature</code> controla la creatividad de las respuestas, y <code>max_tokens</code> define la longitud máxima de la respuesta.</p>
+<h3 id="paso-7-crear-la-aplicaci%C3%B3n-con-streamlit">Paso 7: Crear la Aplicación con Streamlit</h3>
+<h4 id="configurar-la-p%C3%A1gina">Configurar la Página</h4>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    st.set_page_config(page_title=<span class="hljs-string">"PerfectCandidate"</span>, page_icon=<span class="hljs-string">":rocket:"</span>, layout=<span class="hljs-string">"wide"</span>)
+</div></code></pre>
+<p>Aquí configuramos el título, el icono y el layout de nuestra aplicación.</p>
+<h4 id="t%C3%ADtulo-y-columna-de-imagen">Título y Columna de Imagen</h4>
+<pre class="hljs"><code><div>    col1, col2 = st.columns((<span class="hljs-number">0.7</span>,<span class="hljs-number">0.3</span>))
+
+    <span class="hljs-keyword">with</span> col1:
+        st.title(<span class="hljs-string">"🚀 Asistente PerfectCandidate! 🚀"</span>)
+    <span class="hljs-keyword">with</span> col2:
+        st.image(<span class="hljs-string">"./img/bot.png"</span>)
+</div></code></pre>
+<p>Creamos dos columnas, una para el título y otra para una imagen decorativa.</p>
+<h4 id="subida-de-archivos">Subida de Archivos</h4>
+<pre class="hljs"><code><div>    cv_file = st.sidebar.file_uploader(<span class="hljs-string">"Upload your CV (mandatory)"</span>, type=[<span class="hljs-string">'pdf'</span>, <span class="hljs-string">'docx'</span>, <span class="hljs-string">'txt'</span>])
+    rec_letter_file = st.sidebar.file_uploader(<span class="hljs-string">"Upload your Recommendation Letter (optional)"</span>, type=[<span class="hljs-string">'pdf'</span>, <span class="hljs-string">'docx'</span>, <span class="hljs-string">'txt'</span>])
+    interests_file = st.sidebar.file_uploader(<span class="hljs-string">"Upload your Personal Interests Document (optional)"</span>, type=[<span class="hljs-string">'pdf'</span>, <span class="hljs-string">'docx'</span>, <span class="hljs-string">'txt'</span>])
+    job_desc_file = st.sidebar.file_uploader(<span class="hljs-string">"Upload the Job Description (optional)"</span>, type=[<span class="hljs-string">'pdf'</span>, <span class="hljs-string">'docx'</span>, <span class="hljs-string">'txt'</span>])
+</div></code></pre>
+<p>Usamos el sidebar de Streamlit para permitir la subida de varios tipos de archivos.</p>
+<h4 id="procesar-los-archivos-subidos">Procesar los Archivos Subidos</h4>
+<pre class="hljs"><code><div>    <span class="hljs-keyword">if</span> cv_file:
+        cv_text = handle_file_upload(cv_file, cv_file.name.split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">-1</span>])
+        
+    <span class="hljs-keyword">else</span>:
+        st.error(<span class="hljs-string">"***Se debe introducir al menos el CV del candidato***"</span>)
+        <span class="hljs-keyword">return</span>
+
+    rec_letter_text = handle_file_upload(rec_letter_file, rec_letter_file.name.split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">-1</span>]) <span class="hljs-keyword">if</span> rec_letter_file <span class="hljs-keyword">else</span> <span class="hljs-string">"No info disponible"</span>
+    interests_text = handle_file_upload(interests_file, interests_file.name.split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">-1</span>]) <span class="hljs-keyword">if</span> interests_file <span class="hljs-keyword">else</span> <span class="hljs-string">"No info disponible"</span>
+    job_desc_text = handle_file_upload(job_desc_file, job_desc_file.name.split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">-1</span>]) <span class="hljs-keyword">if</span> job_desc_file <span class="hljs-keyword">else</span> <span class="hljs-string">"No info disponible"</span>
+</div></code></pre>
+<p>Procesamos los archivos subidos y obtenemos los textos y embeddings necesarios.</p>
+<h4 id="estado-de-la-sesi%C3%B3n">Estado de la Sesión</h4>
+<pre class="hljs"><code><div>    <span class="hljs-keyword">if</span> <span class="hljs-string">'messages'</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> st.session_state:
+        st.session_state[<span class="hljs-string">'messages'</span>] = []
+</div></code></pre>
+<p>Mantenemos el historial de conversación utilizando el estado de la sesión de Streamlit. Esto no permite ir almacenando toda la conversación paso a paso. Mediante esto, podemos tener una charla en la que nuestro bot &quot;recuerda&quot; todo lo que hemos dicho con anterioridad. Nota: No te precupes que por mucho que se alargue la conversación, LLama 3.1 70B tiene una ventana de contexto de 128k.</p>
+<h4 id="entrada-de-chat-y-mensajes">Entrada de Chat y Mensajes</h4>
+<pre class="hljs"><code><div>    input_text = st.chat_input(<span class="hljs-string">"Pregunta lo que quieras respecto al candidato:"</span>)
+    <span class="hljs-keyword">if</span> input_text:
+        user_message = {<span class="hljs-string">"role"</span>: <span class="hljs-string">"user"</span>, <span class="hljs-string">"content"</span>: input_text}
+        st.session_state.messages.append(user_message)
+
+        context = <span class="hljs-string">"""Eres un experto asistente que ayudas a los reclutadores a ver el potencial
+                    en el candidato del CV adjunto. Con la informacion aportada, 
+                    ayudarás a los reclutadores a entender las cualidades de los candidatos
+                    y su potencial para el puesto en caso de conocer este. En caso de no conocer el rol
+                    al que postula, simplemente se valorarán sus competencias para cualquier puesto en general.
+                    Sé conciso, riguroso, equitativo y constructivo en tu feedback.
+                    """</span>
+        <span class="hljs-keyword">if</span> cv_text:
+            context += <span class="hljs-string">"\n\nCV:\n"</span> + cv_text
+        <span class="hljs-keyword">if</span> rec_letter_text:
+            context += <span class="hljs-string">"\n\nLetra de recomendacion:\n"</span> + rec_letter_text
+        <span class="hljs-keyword">if</span> interests_text:
+            context += <span class="hljs-string">"\n\nIntereses personales:\n"</span> + interests_text
+        <span class="hljs-keyword">if</span> job_desc_text:
+            context += <span class="hljs-string">"\n\nDescripcion del puesto al que postula:\n"</span> + job_desc_text
+
+
+
+        messages_with_context = st.session_state.messages.copy()
+        messages_with_context.insert(<span class="hljs-number">0</span>, {<span class="hljs-string">"role"</span>: <span class="hljs-string">"system"</span>, <span class="hljs-string">"content"</span>: context})
+
+        response = get_groq_response(messages_with_context)
+        st.session_state.messages.append({<span class="hljs-string">"role"</span>: <span class="hljs-string">"assistant"</span>, <span class="hljs-string">"content"</span>: response})
+</div></code></pre>
+<p>Aquí gestionamos la entrada del chat, construimos el contexto necesario y obtenemos la respuesta del modelo Groq. Además, incluimos la llamada y la respuesta a la memoria de la sesión para seguir &quot;recordando&quot;.</p>
+<h4 id="mostrar-conversaci%C3%B3n">Mostrar Conversación</h4>
+<pre class="hljs"><code><div>    <span class="hljs-keyword">for</span> msg <span class="hljs-keyword">in</span> st.session_state.messages:
+        <span class="hljs-keyword">if</span> msg[<span class="hljs-string">'role'</span>] == <span class="hljs-string">'user'</span>:
+            st.chat_message(<span class="hljs-string">"user"</span>).markdown(msg[<span class="hljs-string">'content'</span>])
+        <span class="hljs-keyword">else</span>:
+            st.chat_message(<span class="hljs-string">"assistant"</span>).markdown(msg[<span class="hljs-string">'content'</span>])
+</div></code></pre>
+<p>Mostramos la conversación entre el usuario y el asistente.</p>
+<h3 id="paso-8-ejecutar-la-aplicaci%C3%B3n">Paso 8: Ejecutar la Aplicación</h3>
+<p>Finalmente, ejecutamos nuestra aplicación:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    main()
+</div></code></pre>
+<h3 id="%C2%BFqu%C3%A9-esperamos-que-suceda">¿Qué Esperamos que Suceda?</h3>
+<ul>
+<li><strong>Subida de Archivos</strong>: Los usuarios pueden subir sus CVs y otros documentos relevantes.</li>
+<li><strong>Procesamiento del Texto</strong>: El texto de estos documentos es procesado y convertido en embeddings.</li>
+<li><strong>Interacción de Chat</strong>: Los usuarios pueden hacer preguntas y recibir respuestas detalladas sobre los candidatos.</li>
+<li><strong>Evaluación del Candidato</strong>: Los reclutadores pueden obtener una evaluación detallada del candidato basada en el CV y otros documentos.</li>
+</ul>
+<h3 id="finalidad-y-casos-de-uso">Finalidad y Casos de Uso</h3>
+<p>Con la excusa de que el reclutador use la app para &quot;hablar&quot; con nuestro CV, tenemos la oportunidad de repasar nuestra info pero de una forma diferente, amena y que dice mucho de nuesra capacidad de generar aplicaciones basadas en IA para casos prácticos.</p>
+<p><img src="https://raw.githubusercontent.com/MA-Barracas/perfect-candidate/main/img/uso.png" alt="alt text"></p>
+<p><em>Aqui ↑↑↑ puedes ver un ejemplo con unos archivos fake de prueba (están en la carpeta ejemplos del proyecto) donde se ve como el asistente reconoce al candidato e incluso desaconseja el puesto al que postula por no ser relevante para su perfil.</em></p>
+<h3 id="retos-y-l%C3%ADneas-futuras">Retos y Líneas Futuras</h3>
+<ul>
+<li><strong>Integración con Bases de Datos</strong>: Integrar la aplicación con bases de datos de candidatos para una evaluación más completa. Podriamos ir almacenando todas las conversaciones y asi ir generando un historial de todas nuestras entrevistas. Con suerte, pocas 😉</li>
+<li><strong>Optimización de la Interfaz</strong>: Mejorar la interfaz de usuario para hacerla más intuitiva y amigable. Hacer que los mensajes se muestren en streaming, o que se vea de forma más visual qué documentos se han aportado en todo momento.</li>
+<li><strong>Generar un pequeño resumen</strong>: resumir el CV del candidato automáticamente muy brevemente al subir el CV y mostrarlo.</li>
+</ul>
+<h3 id="despliegue">Despliegue</h3>
+<p>Puedes desplegar esta aplicación directamente en los servidores de Streamlit. Solo necesitas crear una cuenta en <a href="https://streamlit.io/sharing">Streamlit Sharing</a> y seguir las instrucciones para desplegar tu aplicación. Básicamente es subir la aplicacion a un repo, loguearte en streamlit con tu cuenta de github y desplegar. <strong>No olvides añadir la API KEY de OpenAi y la de Groq a las variables de entorno!!!</strong> He subido una copia de la app por si alguien quiere trastear (https://ma-barracas-perfect-candidate-app-ij0pkh.streamlit.app/) mientras la tengo un tiempo desplegada.</p>
+<h2 id="conclusiones">Conclusiones</h2>
+<p>Crear una aplicación como PerfectCandidate no solo te ayuda a destacar entre otros candidatos, sino que también te brinda la oportunidad de demostrar tus habilidades en el uso de tecnologías avanzadas. Esta herramienta puede serte útil para destacar en tu proceso de reclutamiento demostrar que vas más allá en el uso de nuevas tecnólogias. Y si no tienes claro si usarla o no en un contexto real, en e peor de los casos siempre es interesante ver aplicaciones con potencial de uso real aunque sea para practicar y reforzar tus conocimientos! 💪</p>
+<p>Hay muchas maneras de mejorar la app. Si se te ocurre alguna no dudes en contactar conmigo 🚀</p>
+<p><img src="https://raw.githubusercontent.com/MA-Barracas/perfect-candidate/main/img/cierre.png" alt="alt text"></p>
+
+</body>
+</html>

@@ -1,8 +1,8 @@
-![alt text](img/logo_TB_horiz_positivo-01.png)
+![alt text](https://raw.githubusercontent.com/MA-Barracas/perfect-candidate/main/img/logo_TB_horiz_positivo-01.png)
 
 # Creando una Aplicación de Asistente de Reclutamiento con Streamlit <br> Perfect-Candidate
 
-![alt text](img/intro.png)
+![alt text](https://raw.githubusercontent.com/MA-Barracas/perfect-candidate/main/img/intro.png)
 
 ## Introducción
 
@@ -281,4 +281,4 @@ Crear una aplicación como PerfectCandidate no solo te ayuda a destacar entre ot
 
 Hay muchas maneras de mejorar la app. Si se te ocurre alguna no dudes en contactar conmigo 🚀
 
-![alt text](img/cierre.png)
+![alt text](https://raw.githubusercontent.com/MA-Barracas/perfect-candidate/main/img/cierre.png)
