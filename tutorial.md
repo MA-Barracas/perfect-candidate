@@ -1,4 +1,8 @@
-# Creando una Aplicación de Asistente de Reclutamiento con Streamlit
+![alt text](img/logo_TB_horiz_positivo-01.png)
+
+# Creando una Aplicación de Asistente de Reclutamiento con Streamlit <br> Perfect-Candidate
+
+![alt text](img/intro.png)
 
 ## Introducción
 
@@ -7,7 +11,7 @@ Este tutorial está diseñado con un perfil de Data Science en mente. Pero no se
 
 ## Motivación
 
-Imagina que acabas de terminar tu bootcamp y estás en búsqueda de tu primer trabajo como científico de datos. Has enviado tu CV a varios reclutadores, pero ¿qué más puedes hacer para destacar? Aquí es donde entra nuestra aplicación. Al crear esta herramienta, no solo proporcionas tu CV, sino que también demuestras tu capacidad para trabajar con tecnologías avanzadas como **embeddings** de OpenAI y modelos de **Groq**. Esto puede impresionar a los reclutadores y aumentar tus posibilidades de ser contratado.
+Imagina que acabas de terminar tu bootcamp y estás en búsqueda de tu primer trabajo como científico de datos. Has enviado tu CV a varios reclutadores, pero ¿qué más puedes hacer para destacar? Aquí es donde entra nuestra aplicación. Al crear esta herramienta, no solo proporcionas tu CV, sino que también demuestras tu capacidad para trabajar con tecnologías avanzadas como LLMs y en concreto usando la api de **Groq**. Esto puede llamar la atención de los reclutadores/entrevistadores y aumentar tus posibilidades de ser contratado.
 
 ## ¿Qué es Streamlit?
 
@@ -257,7 +261,7 @@ if __name__ == "__main__":
 
 Con la excusa de que el reclutador use la app para "hablar" con nuestro CV, tenemos la oportunidad de repasar nuestra info pero de una forma diferente, amena y que dice mucho de nuesra capacidad de generar aplicaciones basadas en IA para casos prácticos.
 
-![alt text](img/uso.png)
+![alt text](https://raw.githubusercontent.com/MA-Barracas/perfect-candidate/main/img/uso.png)
 
 _Aqui ↑↑↑ puedes ver un ejemplo con unos archivos fake de prueba (están en la carpeta ejemplos del proyecto) donde se ve como el asistente reconoce al candidato e incluso desaconseja el puesto al que postula por no ser relevante para su perfil._
 
@@ -276,3 +280,5 @@ Puedes desplegar esta aplicación directamente en los servidores de Streamlit. S
 Crear una aplicación como PerfectCandidate no solo te ayuda a destacar entre otros candidatos, sino que también te brinda la oportunidad de demostrar tus habilidades en el uso de tecnologías avanzadas. Esta herramienta puede serte útil para destacar en tu proceso de reclutamiento demostrar que vas más allá en el uso de nuevas tecnólogias. Y si no tienes claro si usarla o no en un contexto real, en e peor de los casos siempre es interesante ver aplicaciones con potencial de uso real aunque sea para practicar y reforzar tus conocimientos! 💪
 
 Hay muchas maneras de mejorar la app. Si se te ocurre alguna no dudes en contactar conmigo 🚀
+
+![alt text](img/cierre.png)
